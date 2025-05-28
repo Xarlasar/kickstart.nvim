@@ -417,6 +417,10 @@ require('lazy').setup({
         -- },
         -- pickers = {}
         extensions = {
+          ['media-files'] = {
+            filetypes = { 'png', 'webp', 'jpg', 'jpeg' },
+            find_cmd = 'rg',
+          },
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
@@ -425,6 +429,7 @@ require('lazy').setup({
 
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
+      pcall(require('telescope').load_extension, 'media_files')
       pcall(require('telescope').load_extension, 'ui-select')
 
       -- See `:help telescope.builtin`
